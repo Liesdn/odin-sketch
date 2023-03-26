@@ -10,9 +10,17 @@ const board = document.querySelector('.board');
 
 
 // I don't know why this works, I copied it from someone else
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+// let mouseDown = false
+// document.body.onmousedown = () => (mouseDown = true);
+// document.body.onmouseup = () => (mouseDown = false);
+
+// Another method I found that works and I understand it better so I use this
+let click = false;
+document.querySelector('body').addEventListener('click', function(e){
+   if(e.target.tagName != 'BUTTON'){
+       click = !click;
+   }
+})
 
 resetBtn.onclick =  () => resetBoard();
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
@@ -31,7 +39,7 @@ function changeSize(value){
 }
 
 function updateSizeValue(value){
-    sizeValue.innerHTML = `${value} x ${value}`
+    sizeValue.innerHTML = `Board size ${value} x ${value}`
 }
 
 
@@ -57,16 +65,29 @@ function makeBoard(size){
     }
 }
 
+// function changeColor(e){
+//     if (e.type === 'mouseover' && !mouseDown) return
+//     if (color == 'random') {
+//         const randomR = Math.floor(Math.random() * 256)
+//         const randomG = Math.floor(Math.random() * 256)
+//         const randomB = Math.floor(Math.random() * 256)
+//         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+//     } else {
+//         e.target.style.backgroundColor = 'black'
+//         }
+// }
+
 function changeColor(e){
-    if (e.type === 'mouseover' && !mouseDown) return
-    if (color == 'random') {
-        const randomR = Math.floor(Math.random() * 256)
-        const randomG = Math.floor(Math.random() * 256)
-        const randomB = Math.floor(Math.random() * 256)
-        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
-    } else {
-        e.target.style.backgroundColor = 'black'
-        }
+   if(click){
+       if (color == 'random') {
+           const randomR = Math.floor(Math.random() * 256)
+           const randomG = Math.floor(Math.random() * 256)
+           const randomB = Math.floor(Math.random() * 256)
+           e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+       } else {
+           e.target.style.backgroundColor = 'black'
+           }
+   }
 }
 
 function setColor(colorChoice){

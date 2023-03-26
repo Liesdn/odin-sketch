@@ -3,21 +3,27 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-        <title>Odin Sketch</title>
+        <link rel="stylesheet" href="style.css">
+
+        <title>Odin Etch-a-Sketch</title>
     </head>
     <body>
         <div class="header">
-            <h1>Etch a Sketch</h1>
+            <h1>Etch-a-Sketch</h1>
         </div>
         <div class="board"></div>
         <div class="footer">
-            <button id="blackBtn" onclick="setColor('black')">Black</button>
-            <button id="randomBtn" onclick="setColor('random')">Random</button>
-            <button id="resetBtn">Reset</button>
-            <div id="sizeValue" class="size-value">16 x 16</div>
-            <input id="sizeSlider" type="range" value="16" min="1" max="100" />
+            <div class="buttons">
+                <button id="blackBtn" class="btn btn-dark" onclick="setColor('black')">Black</button>
+                <button id="randomBtn" class="btn btn-danger" onclick="setColor('random')">Random</button>
+                <button id="resetBtn" class="btn btn-light">Reset</button>
+            </div>
+            <div id="sizeValue" class="size-value">Board size 16 x 16</div>
+            <input id="sizeSlider" class="form-range" type="range" value="16" min="1" max="100" />
+        </div>
+        <div class="link">
+            <a href="https://github.com/Liesdn/odin-sketch">The Lies/dn Project 2023<img class="gitimg" src="github-mark.svg"></a>
         </div>
 
         <script src="main.js"></script>

@@ -2,11 +2,69 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: #f1f1f1;    
 }
 
+
+.header {
+    margin: 30px;
+}
 .board {
     display: grid;
     border: 5px solid black;
     height: 500px;
     width: 500px;
+    background-color: #fff;
+}
+
+.footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 150px;   
+    justify-content: space-between; 
+    margin-top: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+.gitimg {
+    max-height: 30px;
+    padding: 3px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+}
+
+button {
+    height: 50px;
+    width: 120px;
+}
+
+#blackBtn, #randomBtn, #resetBtn {
+    transition: all 0.1s;
+}
+
+button:hover {
+    transform: scale(1.15);
 }
